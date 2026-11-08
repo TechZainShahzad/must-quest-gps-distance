@@ -9,7 +9,7 @@ A vehicle-advertising platform bills advertisers per kilometre driven inside a c
 - a corrected implementation that matches the independent truth within 1 m for every driver-day
 - a regression suite that fails on the old code and passes on the new one
 
-**Status:** project implementation and non-video submission documents are complete and have been re-run locally. The Loom recording is the remaining submission item. The required documents are [`intent.md`](intent.md) and [`directive.md`](directive.md).
+**Status:** project implementation and submission documents are complete and have been re-run locally. The Loom has been recorded; edit it to the recruiter's 5-minute maximum before submission. The required documents are [`intent.md`](intent.md) and [`directive.md`](directive.md).
 
 ## Quick start
 

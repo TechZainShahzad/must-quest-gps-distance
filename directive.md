@@ -130,7 +130,8 @@ From [EFFORT.md](https://github.com/TechZainShahzad/must-quest-gps-distance/blob
 
 - Sessions 1–4 (build, with checkpoint decisions in between): 1 h 21 min.
 - Session 5 (my own review of outputs, CHECKPOINT 3 review and step 11 preparation): 0 h 50 min.
-- **Total: 2 h 11 min** (sessions 1–5). The Loom recording and submission come after the push and are not included.
+- Session 6 (presentation preparation: 0 h 30 min; Loom recording: about 0 h 10 min): 0 h 40 min. The recording is currently about 10 minutes and needs trimming to the recruiter's 5-minute maximum before submission.
+- **Total: 2 h 51 min** (sessions 1–6). Session 6's preparation and recording durations are my reported estimates; I did not record start and stop times.
 
 ## Appendix: results and handoff links
 
