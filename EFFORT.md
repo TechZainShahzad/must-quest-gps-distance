@@ -9,7 +9,7 @@ Actual time per session. Times are local (UTC+5, machine clock). Session 6's pre
 | 3 | 2026-11-04 | 20:45 | 21:07 | 0 h 22 min | Claude Code (Zain supervising) | Steps 4–6: buggy reference, ping rules, QA tool (validation/report/map, estimated-km and truth−road columns), verify_tool, figures, `docs/findings.md`. Stopped at CHECKPOINT 2. |
 | 4 | 2026-11-04 | 21:07 | 21:25 | 0 h 18 min | Claude Code (Zain supervising) | Recorded CP2 decisions; step 7 root cause; step 8 `distance_fixed.py`, before/after, ranked waterfall; step 9 regression suite, test summary, mutation check; clean full-pipeline run (16.6 s). Stopped before step 10. |
 | 5 | 2026-11-04 | 21:25 | 22:15 | 0 h 50 min | Zain | Own review of outputs, CHECKPOINT 3 review and step 11 preparation. |
-| 6 | 2026-11-09 | — | — | 0 h 40 min | Zain | Presentation preparation (30 min) and Loom recording (about 10 min). The recording exceeds the recruiter's 5-minute limit and needs trimming before submission. |
+| 6 | 2026-11-09 | — | — | 0 h 40 min | Zain | Presentation preparation (30 min) and Loom recording (about 10 min). |
 
 Session times include Zain's checkpoint decisions (made between sessions, partly in discussion with Claude chat). Boundaries are taken from the times each checkpoint result was reported, so they are accurate to within a few minutes.
 
