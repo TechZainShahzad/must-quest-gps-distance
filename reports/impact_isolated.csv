@@ -1,0 +1,7 @@
+problem_fixed_alone,total_change_km,sum_abs_change_per_driver_day_km
+R3 duplicates,-0.18,0.184
+R4 order by timestamp,-404.745,413.522
+R1+R2 noise,-58.666,58.666
+R6 clip to zone,-175.475,176.252
+item 9 trip breaks (dt > 300 s in file order),-242.484,242.484
+R5 local day + midnight split,0.0,413.802

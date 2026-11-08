@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# editor / OS / local
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.env
+.env.*
+# Keep the recruiter-provided assessment prompt out of the public project repo.
+/recruiterDoc.txt

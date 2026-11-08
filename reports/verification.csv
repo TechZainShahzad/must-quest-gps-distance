@@ -1,0 +1,11 @@
+check,rule,injected,flagged,tp,fp,fn,precision,recall,note
+off-road noise rejected,R1,56,56,56,0,0,1.000,1.000,
+  of which just over 100 m,R1,16,16,16,0,0,1.000,1.000,precision n/a within subset
+speed noise rejected (speed only),R2,46,46,46,0,0,1.000,1.000,
+  of which just over 150 km/h,R2,16,16,16,0,0,1.000,1.000,precision n/a within subset
+any noise rejected,R1+R2,102,102,102,0,0,1.000,1.000,
+duplicate copies dropped,R3,180,180,180,0,0,1.000,1.000,
+  shifted-coord copy dropped (not the original),R3 / item 4,60,60,60,0,0,1.000,1.000,closest-to-road rule
+late pings flagged out_of_order,R4,158,158,158,0,0,1.000,1.000,
+estimated gaps flagged (> 60 s),item 9,17,17,17,0,0,1.000,1.000,
+trip-break gaps inside trips (> 5 min),item 9,4,4,4,0,0,1.000,1.000,"the tool also flags breaks between trips, which are not injected faults"

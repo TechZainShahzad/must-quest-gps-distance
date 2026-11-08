@@ -1,0 +1,114 @@
+{
+ "baseline": "19 passed, 19 deselected in 2.43s",
+ "after_restore": "19 passed, 19 deselected in 2.54s",
+ "after_restore_green": true,
+ "mutants": [
+  {
+   "mutant": "sorting",
+   "rule": "R4 sort by timestamp",
+   "file": "src/distance_fixed.py",
+   "change": "acc = acc.sort_values([\"driver_id\", \"t\", \"row_id\"])  ->  acc = acc  # MUTANT: segments in file order",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r4_late_ping_is_placed_by_its_timestamp"
+   ],
+   "pytest": "2 failed, 16 passed, 20 deselected in 2.55s",
+   "restored": true
+  },
+  {
+   "mutant": "deduplication",
+   "rule": "R3 duplicates",
+   "file": "src/distance_fixed.py",
+   "change": "acc = v[v.status == \"accepted\"].assign(  ->  acc = v[v.status != \"rejected\"].assign(",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r3_same_timestamp_different_coords_keeps_closest_to_road"
+   ],
+   "pytest": "2 failed, 16 passed, 20 deselected in 2.62s",
+   "restored": true
+  },
+  {
+   "mutant": "zone clipping",
+   "rule": "R6 zone boundary",
+   "file": "src/distance_fixed.py",
+   "change": "inside = seg.intersection(zone_xy).length if seg.length > 0 else 0.0  ->  inside = seg.length  # MUTANT: whole segment counted",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r6_segment_crossing_zone_edge_counts_inside_part_only",
+    "test_r6_segment_entirely_outside_counts_zero"
+   ],
+   "pytest": "3 failed, 15 passed, 20 deselected in 2.50s",
+   "restored": true
+  },
+  {
+   "mutant": "R1 limit",
+   "rule": "R1 off-road",
+   "file": "src/ping_rules.py",
+   "change": "R1_MAX_M = 100.0  ->  R1_MAX_M = 1e9",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r1_offroad_101m_is_ignored"
+   ],
+   "pytest": "2 failed, 16 passed, 20 deselected in 2.53s",
+   "restored": true
+  },
+  {
+   "mutant": "R2 limit",
+   "rule": "R2 speed",
+   "file": "src/ping_rules.py",
+   "change": "R2_MAX_KMH = 150.0  ->  R2_MAX_KMH = 1e9",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r2_noise_ping_then_good_ping_uses_last_accepted",
+    "test_r2_speed_151kmh_is_ignored"
+   ],
+   "pytest": "3 failed, 15 passed, 20 deselected in 2.55s",
+   "restored": true
+  },
+  {
+   "mutant": "trip break",
+   "rule": "assumption 9 (> 5 min)",
+   "file": "src/ping_rules.py",
+   "change": "TRIP_BREAK_S = 300  ->  TRIP_BREAK_S = 10**9",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_gap_over_5_minutes_ends_the_trip"
+   ],
+   "pytest": "2 failed, 16 passed, 20 deselected in 2.58s",
+   "restored": true
+  },
+  {
+   "mutant": "UTC+9 offset",
+   "rule": "R5 local day",
+   "file": "src/geo.py",
+   "change": "LOCAL_OFFSET_S = 9 * 3600  ->  LOCAL_OFFSET_S = 0",
+   "caught": true,
+   "failing_tests": [
+    "test_full_dataset_matches_truth_within_1m",
+    "test_r5_morning_trip_belongs_to_the_local_day",
+    "test_r5_ping_at_exactly_1500z_starts_the_new_local_day",
+    "test_r5_trip_across_local_midnight_is_split_by_time"
+   ],
+   "pytest": "4 failed, 14 passed, 20 deselected in 2.56s",
+   "restored": true
+  },
+  {
+   "mutant": "truth imports src",
+   "rule": "truth independence (CHECKPOINT 1)",
+   "file": "data/generate_data.py",
+   "change": "from shapely.geometry import LineString, Polygon  ->  from shapely.geometry import LineString, Polygon\nfrom src import geo  # MUTANT",
+   "caught": true,
+   "failing_tests": [
+    "test_generator_does_not_import_src"
+   ],
+   "pytest": "1 failed, 37 deselected in 0.16s",
+   "restored": true
+  }
+ ]
+}

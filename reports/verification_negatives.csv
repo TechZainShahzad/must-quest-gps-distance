@@ -1,0 +1,6 @@
+check,injected,wrongly_flagged
+near-miss < 100 m wrongly rejected,16,0
+near-miss < 150 km/h wrongly rejected,16,0
+short gap (<= 60 s) wrongly flagged estimated,14,0
+midnight-crossing ping (incl. exactly 15:00:00Z) on the new local day,5,0
+zone-edge ping inside/outside correct,29,0

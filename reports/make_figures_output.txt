@@ -1,0 +1,17 @@
+Examples (from reports/buggy_segments.csv):
+  order     D06 rows 6781->7669  2026-10-14T05:12:42Z -> 2026-10-12T22:57:41Z  buggy km 11.6908  UTC day 2026-10-12  | causes: out of order (backwards in time); one end outside zone, counted whole; crosses local midnight
+      row 6781: 2026-10-14T05:12:42Z lat 37.5023783 lon 126.9433149 status=accepted reason='accepted (normal)' in_zone=True local_day=2026-10-14 off_road_m=0.00
+      row 7669: 2026-10-12T22:57:41Z lat 37.5049278 lon 127.0758060 status=accepted reason='accepted (normal)' in_zone=False local_day=2026-10-13 off_road_m=0.00
+  noise     D05 rows 5374->5376  2026-10-13T15:01:40Z -> 2026-10-13T15:01:50Z  buggy km 2.1005  UTC day 2026-10-13  | causes: noise endpoint (off_road+speed); one end outside zone, counted whole
+      row 5374: 2026-10-13T15:01:40Z lat 37.5008403 lon 126.9634019 status=accepted reason='accepted (normal)' in_zone=True local_day=2026-10-14 off_road_m=0.00
+      row 5376: 2026-10-13T15:01:50Z lat 37.4899970 lon 126.9828978 status=rejected reason='R1 511.34 m from road > 100' in_zone=False local_day=2026-10-14 off_road_m=511.34
+  zone      D03 rows 749->750  2026-10-11T23:48:10Z -> 2026-10-11T23:48:20Z  buggy km 0.2055  UTC day 2026-10-11  | causes: one end outside zone, counted whole
+      row 749: 2026-10-11T23:48:10Z lat 37.4988617 lon 127.0555718 status=accepted reason='accepted (normal)' in_zone=False local_day=2026-10-12 off_road_m=0.00
+      row 750: 2026-10-11T23:48:20Z lat 37.5005977 lon 127.0547737 status=accepted reason='accepted (normal)' in_zone=True local_day=2026-10-12 off_road_m=0.00
+  tripbreak D05 rows 5602->5759  2026-10-13T15:11:20Z -> 2026-10-14T00:00:25Z  buggy km 11.2199  UTC day 2026-10-14  | causes: spans 529 min gap; one end outside zone, counted whole
+      row 5602: 2026-10-13T15:11:20Z lat 37.4931904 lon 126.9222405 status=accepted reason='accepted (normal)' in_zone=False local_day=2026-10-14 off_road_m=0.00
+      row 5759: 2026-10-14T00:00:25Z lat 37.5071400 lon 127.0482044 status=accepted reason='accepted (trip_break)' in_zone=True local_day=2026-10-14 off_road_m=0.00
+  dup       D04 rows 7255->7256  2026-10-14T07:33:27Z -> 2026-10-14T07:33:37Z  buggy km 0.1783  UTC day 2026-10-14  | causes: duplicate endpoint
+      row 7255: 2026-10-14T07:33:27Z lat 37.5043984 lon 127.0161608 status=duplicate reason='R3 duplicate of row 7254' in_zone=True local_day=2026-10-14 off_road_m=5.99
+      row 7256: 2026-10-14T07:33:37Z lat 37.5059044 lon 127.0154669 status=accepted reason='accepted (normal)' in_zone=True local_day=2026-10-14 off_road_m=0.00
+wrote docs/img/fig1_order_driver_day.png fig_noise.png fig_zone.png fig_tripbreak.png fig_order.png
